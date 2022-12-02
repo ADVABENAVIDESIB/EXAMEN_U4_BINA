@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" justify-content-center>
+  <p>token de admin 9999</p>
+  <p>token de cliente 3111590913</p>
+  <form [formGroup]="myForm">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-centert size-md="6" sixe-lg="5" size-xs="12">
+          <div text-center>
+            <h3>LOGIN DE USUARIOS</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email"  formControlName="tel" placeholder="telefono" required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button color="primary" size="large" (click)="onLogin()" expand="block"
+            *ngIf="myForm.valid" >LOGIN</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

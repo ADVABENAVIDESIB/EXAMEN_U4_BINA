@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear reservación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-grid fixed>
+    <form [formGroup]="myForm">
+  <ion-row>
+    <ion-col>
+        <ion-item>
+          <ion-label>Fecha Ingreso</ion-label>
+          <ion-datetime-button slot="end" datetime="date_in"></ion-datetime-button>
+        </ion-item>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="date_in" presentation="date" value={{minDate}} 
+            [showDefaultButtons]="true" formControlName="date_in" min={{minDate}}
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>              
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Alberca</ion-label>
+        <ion-range formControlName="alberca" 
+        [ticks]="true" [snaps]="true" min="0"
+        dualknobs="true"
+         max="100" step="20"></ion-range>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>brincolin</ion-label>
+        <ion-toggle slot="end" formControlName="brincolin"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Mesa</ion-label>
+        <ion-toggle slot="end" formControlName="mesa"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Futbolito</ion-label>
+        <ion-toggle slot="end" formControlName="futbolito"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  </form>
+  </ion-grid>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" *ngIf="myForm.valid" >
+    <ion-fab-button (click)="add()" >
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+</ion-content>

@@ -29,7 +29,8 @@ export class ClienteService {
   }
   */
   public getClientePorNumeroTel(tel: string) {
-    return this.firestore.collection('cliente').doc(tel);
+    console.log(tel);
+    return this.firestore.collection('cliente').doc(tel).valueChanges();
   }
 
 
