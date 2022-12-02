@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { Reservacion } from '../models/reservacion';
+import { ReservacionService } from '../services/reservacion.service';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor() { }
+  public reservaciones:Reservacion[];
+  constructor(private reservaServicio:ReservacionService) { 
+    this.reservaServicio.getReservaciones().subscribe(
+      res => {
+        this.reservaciones = res;
+        console.log(this.reservaciones);
+      }
+    )
+  }
 }
